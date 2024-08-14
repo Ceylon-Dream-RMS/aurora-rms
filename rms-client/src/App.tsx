@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import { BrowserRouter } from 'react-router-dom';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+
 import './App.css'
+import Event from './modules/events/Event';
+import Employees from './modules/employees/Employees';
+import Reservation from './modules/reservations/reservation';
+import Restuarent from './modules/restuarent/restuarent';
+import Spa from './modules/spa/spa';
+import Guests from './modules/guests/guests';
+import Transport from './modules/transportation/transportation';
+import Offers from './modules/offers/offers';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <BrowserRouter>
-
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routes>
+        <Route path='/hr' element={<Employees/>}/>
+        <Route path='/event' element={<Event/>}/>
+        {/* <Route path='/event/1' element={<Events/>}/> */}
+        <Route path='/reservation' element={<Reservation/>}/>
+        <Route path='/restuarent' element={<Restuarent/>}/>
+        <Route path='/spa' element={<Spa/>}/>
+        <Route path='/profile' element={<Guests/>}/>
+        <Route path='/transportation' element={<Transport/>}/>
+        <Route path='/offers' element={<Offers/>}/>
+        
+      </Routes>
     </BrowserRouter>
   )
 }
